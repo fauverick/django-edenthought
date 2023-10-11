@@ -1,0 +1,67 @@
+{% extends 'journal/navbar.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content%}
+    <br>
+    <div class = "container bg-white shadow-md p-5  form_layout">
+        <h1>
+            Profile management
+        </h1>
+
+     
+        <form method="POST" autocomplete="off">
+            {% csrf_token %}
+
+            {{UserUpdateForm| crispy}}
+
+            <br> <br>
+
+            <input type = "submit" value = "Save Changes">
+        </form>
+
+    </div>
+
+    <br>
+    <br>
+
+    <div class = "container bg-white shadow-md p-5  form_layout">
+        <h1>
+            Update Profile Picture
+        </h1>
+
+        <br>
+        
+        <p>Current Profile Pic: </p>
+        <img src = "{{CurrentProfile.profile_pic.url}}" style = "width: 30%; padding: 0px 0 20px 0">
+
+        <form method="POST" autocomplete="off" enctype="multipart/form-data"> 
+            <!-- enctype="multipart/form-data" to allow file upload-->
+            {% csrf_token %}
+
+            {{ProfileUpdateForm| crispy}}
+
+            <br> <br>
+
+            <input type = "submit" value = "Save Changes">
+        </form>
+
+    </div>
+
+    <br>
+    <br>
+
+    <div class = "container bg-white shadow-md p-5  form_layout">
+        <h1>
+            Delete your account
+        </h1>
+
+     
+       <a href = "{% url 'delete_account'%}"> Click here to delete </a>
+
+    </div>
+
+    <br>
+
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+<html>
+    <head>
+        <title>
+            EdenThought | Login
+        </title>
+
+        <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/morph/bootstrap.min.css">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    </head>
+
+    <br>
+
+    <div class = "container bg-white shadow-md p-5  form_layout">
+        <h3> Login</h3>
+        <p> Please login to your account</p>
+
+        <br>
+        <br>
+
+        {%for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                <p id = "message_timer" class="alert alert-success float-center text-center message_text"> {{message}} </p>
+            {% endif %}
+
+            <!-- if we want to show the alert for an error message, we need another if statement -->
+        {% endfor %}
+
+        <form method="POST" autocomplete="off">
+            {% csrf_token %}
+
+            {{LoginForm| crispy}}
+
+            <br> <br>
+
+            <input type = "submit" value = "Log in">
+        </form>
+    </div>
+
+    <br>
+
+    <script src = "{% static 'js/app.js' %}"></script>
+</html>

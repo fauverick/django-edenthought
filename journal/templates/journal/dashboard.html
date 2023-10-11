@@ -1,0 +1,21 @@
+{% extends 'journal/navbar.html' %}
+
+{% block content %}
+    <br>
+    <div class = "container bg-white shadow-md p-5  form_layout">
+        <h1>
+            Dashboard
+        </h1>
+
+        <h6>
+            {{user}}
+            <!-- django's built in feature to afficher user  -->
+        </h6>
+
+        <img src = "{{ ProfilePic.profile_pic.url }}" style = "width: 30%; padding: 20px 0;">
+        <p>
+            <a href = "{% url 'user_logout' %}">Logout</a>
+        </p>
+</div>
+{% endblock %}
+

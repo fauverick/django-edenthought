@@ -1,0 +1,25 @@
+{% extends 'journal/navbar.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content%}
+    <br>
+    <div class = "container bg-white shadow-md p-5  form_layout">
+        <h1>
+            Update your thought
+        </h1>
+
+     
+        <form method="POST" autocomplete="off">
+            {% csrf_token %}
+
+            {{UpdateThought | crispy}}
+
+            <br> <br>
+
+            <input type = "submit" value = "Update Thought">
+        </form>
+    </div>
+
+
+{% endblock %}
