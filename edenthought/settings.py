@@ -20,9 +20,11 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+#Fill the links in after web is live on render 
 
-# CSRF_TRUSTED_ORIGINS = []
+ALLOWED_HOSTS = ['django-web-edenthought.onrender.com', '*']
+
+CSRF_TRUSTED_ORIGINS = ['https://django-web-edenthought.onrender.com']
 
 
 # Application definition
